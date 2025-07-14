@@ -1,11 +1,11 @@
 import Link from "next/link"
-import { getAllPosts } from "@/lib/blog"
+import { getBlogPostsMetadata } from "@/lib/blog"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CalendarDays, User } from "lucide-react"
+import { CalendarDays } from "lucide-react"
 
 export default function BlogPage() {
-  const posts = getAllPosts()
+  const posts = getBlogPostsMetadata()
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -24,44 +24,37 @@ export default function BlogPage() {
           <div className="grid gap-6">
             {posts.map((post) => (
               <Card key={post.slug} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex flex-wrap gap-2 mb-2">
-                    {post.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                  <CardTitle className="text-2xl">
-                    <Link href={`/blog/${post.slug}`} className="hover:text-blue-600 transition-colors">
-                      {post.title}
-                    </Link>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{post.excerpt}</p>
-                  <div className="flex items-center gap-4 text-sm text-gray-500">
-                    <div className="flex items-center gap-1">
-                      <User className="w-4 h-4" />
-                      <span>{post.author}</span>
+                <Link href={`/blog/${post.slug}`}>
+                  <CardHeader>
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      {post.tags.map((tag) => (
+                        <Badge key={tag} variant="secondary">
+                          {tag}
+                        </Badge>
+                      ))}
                     </div>
-                    <div className="flex items-center gap-1">
-                      <CalendarDays className="w-4 h-4" />
-                      <span>
-                        {new Date(post.date).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
-                      </span>
+                    <CardTitle className="text-2xl">
+                      <div className="hover:text-blue-600 transition-colors">
+                        {post.title}
+                      </div>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 mb-4 leading-relaxed">{post.excerpt}</p>
+                    <div className="flex items-center gap-4 text-sm text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <CalendarDays className="w-4 h-4" />
+                        <span>
+                          {new Date(post.date).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <div className="mt-4">
-                    <Link href={`/blog/${post.slug}`} className="text-blue-600 hover:text-blue-800 font-medium">
-                      Read more →
-                    </Link>
-                  </div>
-                </CardContent>
+                  </CardContent>
+                </Link>
               </Card>
             ))}
           </div>

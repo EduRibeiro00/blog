@@ -1,49 +1,52 @@
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
+import { serialize } from "next-mdx-remote/serialize"
 
-export interface BlogPost {
+// TODO: add cover image to this
+export interface BlogPostMetadata {
   slug: string
   title: string
   date: string
   excerpt: string
-  author: string
   tags: string[]
-  content: string
+}
+
+export interface BlogPost extends BlogPostMetadata {
+  content: string;
+  source: Awaited<ReturnType<typeof serialize>>
 }
 
 const postsDirectory = path.join(process.cwd(), "content/blog")
 
-export function getAllPosts(): BlogPost[] {
+export function getBlogPostsMetadata(): BlogPostMetadata[] {
   // Ensure the directory exists
   if (!fs.existsSync(postsDirectory)) {
     return []
   }
 
   const fileNames = fs.readdirSync(postsDirectory)
-  const allPostsData = fileNames
+  const allPostsMetadata = fileNames
     .filter((fileName) => fileName.endsWith(".md") || fileName.endsWith(".mdx"))
     .map((fileName) => {
       const slug = fileName.replace(/\.(md|mdx)$/, "")
       const fullPath = path.join(postsDirectory, fileName)
       const fileContents = fs.readFileSync(fullPath, "utf8")
-      const { data, content } = matter(fileContents)
+      const { data } = matter(fileContents)
 
       return {
         slug,
         title: data.title || "Untitled",
         date: data.date || new Date().toISOString(),
         excerpt: data.excerpt || "",
-        author: data.author || "Anonymous",
         tags: data.tags || [],
-        content,
       }
     })
 
-  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1))
+  return allPostsMetadata.sort((a, b) => (a.date < b.date ? 1 : -1))
 }
 
-export function getPostBySlug(slug: string): BlogPost | null {
+export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   try {
     const fullPath = path.join(postsDirectory, `${slug}.md`)
     let fileContents: string
@@ -61,15 +64,16 @@ export function getPostBySlug(slug: string): BlogPost | null {
     }
 
     const { data, content } = matter(fileContents)
+    const mdxSource = await serialize(content)
 
     return {
       slug,
       title: data.title || "Untitled",
       date: data.date || new Date().toISOString(),
       excerpt: data.excerpt || "",
-      author: data.author || "Anonymous",
       tags: data.tags || [],
       content,
+      source: mdxSource
     }
   } catch (error) {
     return null

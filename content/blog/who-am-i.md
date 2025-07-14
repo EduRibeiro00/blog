@@ -2,12 +2,11 @@
 title: "Who am I"
 date: "2021-02-10"
 excerpt: "A bit about myself."
-author: "Eduardo Ribeiro"
 tags: []
 ---
 
 Hello! My name is Eduardo, and this is my blog (as you can probably tell by now). I just want to make a quick post explaining who I am, what I've been up to and will be up to in the near future, and talk about why I decided to create this blog and what is the content you can expect to see here.
-  
+
 I have almost no experience when it comes to writing or blogging, so this post may not be very well structured but I think it will get the job done. Let's get started 👌
 
 # So... who am I?

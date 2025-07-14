@@ -2,8 +2,9 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import { getPostBySlug, getAllPostSlugs } from "@/lib/blog"
 import { Badge } from "@/components/ui/badge"
-import { CalendarDays, User, ArrowLeft } from "lucide-react"
+import { CalendarDays, ArrowLeft } from "lucide-react"
 import { MDXRemote } from "next-mdx-remote/rsc"
+import { useMDXComponents } from "@/lib/mdx-components"
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>
@@ -18,7 +19,8 @@ export async function generateStaticParams() {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  const post = await getPostBySlug(slug)
+  const mdxComponents = useMDXComponents({})
 
   if (!post) {
     notFound()
@@ -41,13 +43,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             ))}
           </div>
 
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">{post.title}</h1>
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">{post.title}</h1>
 
           <div className="flex items-center gap-4 text-gray-500 mb-8">
-            <div className="flex items-center gap-1">
-              <User className="w-4 h-4" />
-              <span>{post.author}</span>
-            </div>
             <div className="flex items-center gap-1">
               <CalendarDays className="w-4 h-4" />
               <span>
@@ -62,7 +60,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
 
         <article className="prose prose-lg max-w-none">
-          <MDXRemote source={post.content} />
+          <MDXRemote {...post.source} source={post.content} components={mdxComponents}/>
         </article>
       </div>
     </div>
