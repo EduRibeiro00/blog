@@ -51,6 +51,6 @@ And lastly, this is kind of my entry point into content creation, something that
 
 I'll keep this blog mainly for tech and software related stuff: activities that I've been doing, projects that I've been working on, and topics I've researched about or just found on the Internet. However, be ready for occasional sprinkles of random stuff that I might chuck into this website 🤩
 
-And that's about it! Hope this post was not too boring/badly structured/long, maybe it was all of the 3, I don't know. I promise I will get better at this. Also, if you have any recommendations, feel free to contact me or open an issue on the [website repository](https://github.com/EduRibeiro00/personal-blog).
+And that's about it! Hope this post was not too boring/badly structured/long, maybe it was all of the 3, I don't know. I promise I will get better at this. Also, if you have any recommendations, feel free to contact me or open an issue on the [website repository](https://github.com/EduRibeiro00/blog).
 
 Anyway, if you have stuck until the end, I thank you for your patience, and I hope you tune in for future posts. Until then!
