@@ -16,7 +16,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     blockquote: ({ children }) => (
       <blockquote className="border-l-4 border-blue-500 pl-4 italic mb-4 text-gray-600">{children}</blockquote>
     ),
-    a: ({href, children}) => <a href={href} className="text-blue-700 underline">{children}</a>,
+    a: ({href, children}) => <a href={href} className="text-blue-600 hover:text-blue-800 underline">{children}</a>,
     ...components,
   }
 }

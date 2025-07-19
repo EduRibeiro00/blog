@@ -3,6 +3,7 @@ import { getBlogPostsMetadata } from "@/lib/blog"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { CalendarDays } from "lucide-react"
+import Backlink from "@/components/custom/backlink"
 
 export default function BlogPage() {
   const posts = getBlogPostsMetadata()
@@ -10,6 +11,7 @@ export default function BlogPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
+        <Backlink href="/" text="Back to main page" />
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Blog</h1>
           <p className="text-lg text-gray-600">Discover our latest articles, tutorials, and insights.</p>
@@ -34,9 +36,7 @@ export default function BlogPage() {
                       ))}
                     </div>
                     <CardTitle className="text-2xl">
-                      <div className="hover:text-blue-600 transition-colors">
-                        {post.title}
-                      </div>
+                      {post.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
