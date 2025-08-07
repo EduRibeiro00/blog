@@ -1,10 +1,10 @@
-import { notFound } from "next/navigation"
-import { getPostBySlug, getAllPostSlugs } from "@/lib/blog"
-import { Badge } from "@/components/ui/badge"
-import { CalendarDays, ArrowLeft } from "lucide-react"
-import { MDXRemote } from "next-mdx-remote/rsc"
-import { useMDXComponents } from "@/lib/mdx-components"
 import Backlink from "@/components/custom/backlink"
+import { Badge } from "@/components/ui/badge"
+import { getAllPostSlugs, getPostBySlug } from "@/lib/blog"
+import { useMDXComponents } from "@/lib/mdx-components"
+import { CalendarDays } from "lucide-react"
+import { MDXRemote } from "next-mdx-remote/rsc"
+import { notFound } from "next/navigation"
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>
@@ -40,7 +40,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             ))}
           </div>
 
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">{post.title}</h1>
+          <h1 className="text-5xl font-bold text-gray-900 p-0 mb-4">{post.title}</h1>
 
           <div className="flex items-center gap-4 text-gray-500 mb-8">
             <div className="flex items-center gap-1">
