@@ -14,10 +14,13 @@ export default function BlogPage() {
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
         <Backlink href="/" text="Back to main page" />
-        <div className="mt-4 mb-8">
+        <div className="mt-4 mb-10">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Blog</h1>
           <p className="text-lg text-gray-600">
-            Discover our latest articles, tutorials, and insights.
+            In this page you can see all the blog posts I have made so far. I'll
+            mainly talk about my software engineering journey and tech related
+            stuff, but occasionally you might find something related to other
+            hobbies of mine.
           </p>
         </div>
         {posts.length === 0 ? (
