@@ -24,7 +24,7 @@ By placing an open source license on a project, a person or organization agrees 
 * Allow the creation of derivative works or other projects that build on top of it
 * Allow the project to be utilized by anyone, for (pretty much) anything.
 
-![SWE Open Source Image](./images/swe_open_source.jpg)
+![SWE Open Source Image](/blog/images/swe_open_source.jpg)
 
 # Why is Open Source so important?
 
@@ -52,17 +52,17 @@ If you have never contributed to an open source project, and don't know how to, 
 * **Read the contribution guidelines.** Most of the time, open source projects have in their repository what is called the contribution or coding guidelines. This is normally a document written in Markdown, or a web page, that describes what you should do to familiarize yourself with the codebase and to contribute to the project. Normally it has information about how to do a local setup of all the necessary technologies, the description of methodologies or workflows that are being used (e.g. Git Flow), the coding style or any constraints that you need to have into account while coding, etc. So you should definitely check this out in the beginning.
 * **Choose the issue you want to take care of.** In the project's repository, there is probably an Issues section that lists all of the currently open issues and tasks that one can choose to do in order to contribute to it. Pick one that you find interesting or that you feel like you can take care of. For beginners, **look for issues that have labels like "Good First Issue" or "Beginner" or similar.** Almost every medium/large project has issues for newcomers, so don't worry if it's your first time 🙂
 
-![Good First Issues Image](./images/good_first_issues.png)
+![Good First Issues Image](/blog/images/good_first_issues.png)
 
 * **Fork the repository.** Now that you have read the guidelines and found an interesting issue, you must fork the repository, in order to have a copy of the codebase that belongs to you and that you can directly change.
 
-![Fork Button Image](./images/fork_button.png)
+![Fork Button Image](/blog/images/fork_button.png)
 
 * **Create a branch to work on your issue.** In your fork, create a new branch; this is where you will write your code. The naming of the branch should take into account the project's guidelines, and the issue that you are focusing on.
 * **Code away!** You will then write the best code of your life. Maybe.
 * **Make a Pull Request.** Once you're done coding, you must make a Pull Request, with the source branch being the new branch that you created in your fork, and the destination branch being the master branch or develop branch on the original repository (it may depend on the guidelines, so if you are unsure you should take a look at it once again). Here is an example PR from the Visual Studio Code repository:
 
-![Example PR Image](./images/example_pr.png)
+![Example PR Image](/blog/images/example_pr.png)
 
 * **Get feedback.** Maybe your PR wasn't perfect and you made some mistakes, but that's okay! If there are things you should change or improve, other contributors and maintainers of the project will comment on your Pull Request and give indications on what you should change. Gather this feedback and make the necessary changes to your code.
 * **Approvals!** Once your code is good enough and you have solved the issue you chose, other contributors will approve your Pull Request, so it can be merged into the main codebase. In the majority of open source projects, you need at least 2 approvals in order to make the merge into the destination branch.
@@ -83,7 +83,7 @@ Despite all this, my main tip for choosing a project to contribute to is: **find
 If you need some inspiration to pick a project, is a curated list of projects that you might find interesting:
 
 ## Elasticsearch
-![Elasticsearch logo](./images/elasticsearch.png)
+![Elasticsearch logo](/blog/images/elasticsearch.png)
 According to their [website](https://www.elastic.co/pt/what-is/elasticsearch), *"Elasticsearch is a free, open and distributed data search and analysis engine for all types of data, including textual, numeric, geospatial, structured and unstructured. [...]Known for its simple REST APIs, distributed nature, speed and scalability, Elasticsearch is the central component of Elastic Stack, a set of free and open tools for ingesting, enriching, storing, analyzing and visualizing data."*
 * [Link to website](https://www.elastic.co/pt/what-is/elasticsearch)
 * [Link to GitHub repository](https://github.com/elastic/elasticsearch)
@@ -93,7 +93,7 @@ According to their [website](https://www.elastic.co/pt/what-is/elasticsearch), *
 * **Number of repository stars:** 54.2k
 
 ## Habitica
-![Habitica logo](./images/habitica.png)
+![Habitica logo](/blog/images/habitica.png)
 Habitica is a productivity app like no other. It's a habit tracker app that treats your goals like a Role Playing Game. Level up as you succeed, lose HP as you fail, earn money to buy weapons and armor.
 * [Link to website](https://habitica.com/static/home)
 * [Link to GitHub repository](https://github.com/HabitRPG/habitica)
@@ -103,7 +103,7 @@ Habitica is a productivity app like no other. It's a habit tracker app that trea
 * **Number of repository stars:** 8.2k
 
 ## Visual Studio Code
-![VSCode logo](./images/vscode.png)
+![VSCode logo](/blog/images/vscode.png)
 If you are a programmer, chances are you already know what VSCode is, and you may even use it. VSCode is one of the most widely used IDEs, that was made by Microsoft but is now also one of the biggest open source projects.
 * [Link to website](https://code.visualstudio.com/)
 * [Link to GitHub repository](https://github.com/microsoft/vscode)
@@ -113,7 +113,7 @@ If you are a programmer, chances are you already know what VSCode is, and you ma
 * **Number of repository stars:** 113k
 
 ## freeCodeCamp
-![freeCodeCamp logo](./images/freecodecamp.png)
+![freeCodeCamp logo](/blog/images/freecodecamp.png)
 *"freeCodeCamp.org is a friendly community where you can learn to code for free. It is run by a donor-supported 501(c)(3) nonprofit to help millions of busy adults transition into tech. Our community has already helped more than 10,000 people get their first developer job. Our full-stack web development and machine learning curriculum is completely free and self-paced. We have thousands of interactive coding challenges to help you expand your skills."*
 * [Link to website](https://www.freecodecamp.org/)
 * [Link to GitHub repository](https://github.com/freeCodeCamp/freeCodeCamp)
@@ -123,7 +123,7 @@ If you are a programmer, chances are you already know what VSCode is, and you ma
 * **Number of repository stars:** 322k
 
 ## React.js
-![React logo](./images/react.png)
+![React logo](/blog/images/react.png)
 A declarative, efficient, and flexible JavaScript library for building user interfaces. Probably the most popular frontend framework today.
 * [Link to website](https://reactjs.org/)
 * [Link to GitHub repository](https://github.com/facebook/react)
@@ -133,7 +133,7 @@ A declarative, efficient, and flexible JavaScript library for building user inte
 * **Number of repository stars:** 166k
 
 ## Node.js
-![Node logo](./images/node.png)
+![Node logo](/blog/images/node.png)
 Node.js is an open-source, cross-platform, JavaScript runtime environment. It executes JavaScript code outside of a browser.
 * [Link to website](https://nodejs.org/en/)
 * [Link to GitHub repository](https://github.com/nodejs/node)
@@ -143,7 +143,7 @@ Node.js is an open-source, cross-platform, JavaScript runtime environment. It ex
 * **Number of repository stars:** 77.8k
 
 ## Jarvis
-![Jarvis logo](./images/jarvis.jpeg)
+![Jarvis logo](/blog/images/jarvis.jpeg)
 *"Jarvis is a simple personal assistant for Linux, MacOS and Windows which works on the command line. He can talk to you if you enable his voice. He can tell you the weather, he can find restaurants and other places near you. He can do some great stuff for you."*
 * [YouTube video showing Jarvis](https://www.youtube.com/watch?v=PR-nxqmG3V8)
 * [Link to GitHub repository](https://github.com/sukeesh/Jarvis)
@@ -153,7 +153,7 @@ Node.js is an open-source, cross-platform, JavaScript runtime environment. It ex
 * **Number of repository stars:** 1.9k
 
 ## Brave Browser
-![Brave Browser logo](./images/brave_browser.png)
+![Brave Browser logo](/blog/images/brave_browser.png)
 Desktop browser for macOS, Windows, and Linux.
 * [Link to website](https://brave.com/)
 * [Link to GitHub repository](https://github.com/brave/brave-browser)
@@ -163,7 +163,7 @@ Desktop browser for macOS, Windows, and Linux.
 * **Number of repository stars:** 8.7k
 
 ## Tensorflow
-![Tensorflow logo](./images/tensorflow.png)
+![Tensorflow logo](/blog/images/tensorflow.png)
 TensorFlow is an end-to-end open source platform for machine learning. It has a comprehensive, flexible ecosystem of tools, libraries, and community resources that lets researchers push the state-of-the-art in ML and developers easily build and deploy ML-powered applications.
 * [Link to website](https://www.tensorflow.org/)
 * [Link to GitHub repository](https://github.com/tensorflow/tensorflow)
@@ -173,7 +173,7 @@ TensorFlow is an end-to-end open source platform for machine learning. It has a 
 * **Number of repository stars:** 154k
 
 ## Godot Engine
-![Godot logo](./images/godot.png)
+![Godot logo](/blog/images/godot.png)
 Godot Engine is a feature-packed, cross-platform game engine to create 2D and 3D games from a unified interface. It provides a comprehensive set of common tools, so that users can focus on making games without having to reinvent the wheel.
 * [Link to website](https://godotengine.org/)
 * [Link to GitHub repository](https://github.com/godotengine/godot)
@@ -183,7 +183,7 @@ Godot Engine is a feature-packed, cross-platform game engine to create 2D and 3D
 * **Number of repository stars:** 37.3k
 
 ## Kubernetes
-![Kubernetes logo](./images/kubernetes.png)
+![Kubernetes logo](/blog/images/kubernetes.png)
 Kubernetes, also known as K8s, is an open source system for managing containerized applications across multiple hosts. It provides basic mechanisms for deployment, maintenance, and scaling of applications.
 * [Link to website](https://kubernetes.io/pt/)
 * [Link to GitHub repository](https://github.com/kubernetes/kubernetes)

@@ -17,7 +17,7 @@ To put it concisely...
 
 > Blockchain is a technology and architecture based on a distributed ledger, that allows various users to save information (data, transactions, contracts, etc) in blocks that are linked together, achieving a high degree of security and integrity.
 
-![Blockchain Definition Image](./images/blockchain_img.png)
+![Blockchain Definition Image](/blog/images/blockchain_img.png)
 
 The structure of a blockchain is essentially **append-only**, meaning that once you write data to the blockchain, it is extremely difficult to change it or delete it, whether if it's done with good or bad intentions. This is achieved by using [cryptographic hash functions](https://en.wikipedia.org/wiki/Cryptographic_hash_function) (among other things); they are used to calculate a unique hash or identifier for each block. But more on that later.
 
@@ -25,7 +25,7 @@ To understand why, we need to take a closer look at what each block contains: it
 
 The data that each block stores depends on the type of blockchain and application that is being considered. For example, in the case of a cryptocurrency, the blockchain would store in each block a set of transactions, each one containing information like the sender account, the receiver account, and the amount of coins transferred.
 
-![Crypto Blockchain](./images/blockchain_crypto.png)
+![Crypto Blockchain](/blog/images/blockchain_crypto.png)
 
 # Why is Blockchain so secure?
 
@@ -41,7 +41,7 @@ When a block is created, its hash is calculated based on the content of the bloc
 
 So let's think about what would happen if someone tried to hack the contents of a block. If someone tries to, for example, change the value of a transaction in a block, its hash would change, since its content changed. Because of that, the next block in the blockchain, that had stored the hash of the previous block, now contains an invalid hash. This also applies to any change that the blockchain might suffer, including switching the order of blocks, deleting them, etc.
 
-![Tampered Blockchain](./images/blockchain_tamper.png)
+![Tampered Blockchain](/blog/images/blockchain_tamper.png)
 
 So essentially, the chain is broken, and all the blocks that follow the tampered block would actually need to get their hashes recalculated in order to restore the blockchain and make it valid again. 
 
@@ -63,15 +63,15 @@ Apart from hashing and PoW, this is another aspect that makes blockchain so secu
 
 Let's take into account a blockchain system that has a set of participants or nodes, that perform transactions and create blocks to expand the blockchain. Instead of using a central entity to manage the blockchain, **each participant will instead keep a local copy of the blockchain**. When someone creates a block, they will broadcast it into the network so that other participants are aware of its existence. Each one will then check if the block is valid and if it has not been tampered with, and if it is in fact valid it is added to that participant's local copy of the blockchain. Therefore, nodes reach **consensus** about the node added and the new blockchain state.
 
-![Consensus](./images/consensus.png)
+![Consensus](/blog/images/consensus.png)
 
 This decentralized property of the blockchain could bring some additional challenges. Let's say you are a participant, and your local copy of the blockchain ends in block A. You receive a new block B, that connects to block A, thus extending the blockchain. However, some time later, you receive a block C, that also connects to block A. So know you have a **fork**, a separation that resulted in two different blockchains. What happens when you have a **conflict** and you have two distinct blockchains with conflicting transactions or data, like what happened in this case?
 
-![Conflict in Blockchain](./images/bc_conflict.png)
+![Conflict in Blockchain](/blog/images/bc_conflict.png)
 
 The rule to solve this situation is to trust the longest blockchain, **the one with the most work put into it.** Going back to the previous example, eventually we would receive some other blocks that would connect to block B, and maybe some blocks that connect to block C, thus extending both chains. After some time, these chains would probably have different lengths, and we would only keep the longest one, thus resolving the conflict and reaching consensus.
 
-![Conflict Resolved](./images/bc_conflict_resolved.png)
+![Conflict Resolved](/blog/images/bc_conflict_resolved.png)
 
 That is why it is almost impossible to tamper and hack a blockchain, specially if the number of participants and nodes is high: after tampering with a block, we would need to redo the PoW for all following blocks, and because of this **consensus algorithm** we would also need to have at least somewhere close to 50% of the computing power of the whole network, in order to continue computing PoW for new blocks, to maintain the blockchain with the tampered block the blockchain that everyone agrees on. If we do not have that computational power, eventually our tampered blockchain will not be the longest one and it will be discarded.
 

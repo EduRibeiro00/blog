@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
+import BlogpostBadge from "./blogpost-badge";
 
 interface BlogpostCardProps {
   post: BlogPostMetadata;
@@ -43,21 +44,21 @@ export default function BlogpostCard({
             </div>
           </div>
           <div className="flex items-center gap-4 text-sm text-gray-500">
-            <div className="flex items-center gap-1">
-              <CalendarDays className="w-3 h-3" />
-              <span className="text-xs italic">
-                {new Date(post.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Clock className="w-3 h-3" />
-              {/* TODO: change this to use actual expected reading time */}
-              <span className="text-xs italic">4 mins</span>
-            </div>
+            <BlogpostBadge
+              Icon={CalendarDays}
+              text={new Date(post.date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+              size="sm"
+            />
+            <BlogpostBadge
+              Icon={Clock}
+              // TODO: change this to use actual expected reading time */
+              text="4 mins"
+              size="sm"
+            />
           </div>
         </CardContent>
       </Link>

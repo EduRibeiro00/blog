@@ -23,7 +23,7 @@ This process is appropriate for communication between systems, *when that commun
 
 It turns out we can in fact use HTTP requests to get updates from a server, using **HTTP Polling**. HTTP Polling consists of the client issuing an HTTP request to the server, asking if the server has any updates for it. If it doesn't, the server returns an empty response. If the server does in fact have something to give to the client, the client receives it as the response from its HTTP request. The client will continue to issue HTTP requests periodically, following a time interval, with the intent of collecting the most up-to-date information the server might have for it.
 
-![HTTP Polling Diagram](./images/polling.png)
+![HTTP Polling Diagram](/blog/images/polling.png)
 
 This approach is not very efficient, and has some heavy disadvantages:
 
@@ -35,7 +35,7 @@ This approach is not very efficient, and has some heavy disadvantages:
 Another solution that also uses HTTP requests and that solves some downsides of HTTP Polling is [HTTP Long Polling](https://www.pubnub.com/blog/http-long-polling/).
 The difference in this approach is that after an HTTP request from the client, the server **saves and holds that request** until there is an update to be transmitted to the client. When that happens, the response is sent back to the client, and the client issues another request to the server, that will only return when the server generates the next update.
 
-![HTTP Long Polling Diagram](./images/long_polling.png)
+![HTTP Long Polling Diagram](/blog/images/long_polling.png)
 
 The disadvantages of HTTP Polling are somewhat mitigated. The overhead of issuing periodic HTTP requests is reduced by the server holding the requests and only returning if there are new updates. The message delays are also taken care of, because as soon as an update is generated, the server will respond to the currently stored request. So HTTP Long Polling can be used to implement real-time communication.
 
@@ -50,7 +50,7 @@ Unlike HTTP Polling or Long Polling, by having a WebSocket connection between a 
 
 WebSocket is distinct from HTTP, however it uses HTTP initially to setup the connection between the client and the server. That HTTP connection is then upgraded to a full-duplex permanent WebSocket connection.
 
-![Websocket Diagram](./images/websockets.png)
+![Websocket Diagram](/blog/images/websockets.png)
 
 A lot of applications that need real-time communication are using WebSockets, from online games like [agar.io](https://agar.io/) to messaging apps like [Slack](https://slack.com/).
 
@@ -74,7 +74,7 @@ By using this pattern, publishers and subscribers are decoupled and do not commu
 
 In practice, there is often an intermediary layer called a **message broker**, that handles the distribution and filtering of the messages. Some popular message broker technologies are [RabbitMQ](https://www.rabbitmq.com/), [Apache Kafka](https://kafka.apache.org/), and the [AWS Amazon MQ](https://aws.amazon.com/pt/amazon-mq/). However, not every message broker is designed for real-time communication; some of them focus more on reliability and ordering of messages, for example.
 
-![PubSub Diagram](./images/pubsub.png)
+![PubSub Diagram](/blog/images/pubsub.png)
 
 So, how can we use the PubSub pattern to implement real-time communication from the server to the client?
 
