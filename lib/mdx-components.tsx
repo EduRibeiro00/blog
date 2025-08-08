@@ -32,7 +32,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         !props.className || !props.className.startsWith("language-");
       if (isInline) {
         return (
-          <code className="bg-gray-200 rounded text-sm font-mono">
+          <code className="bg-gray-200 px-2 py-1 rounded text-sm font-mono">
             {children}
           </code>
         );
