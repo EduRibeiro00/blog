@@ -1,18 +1,18 @@
-import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomOneLight } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { coldarkCold } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 /**
  * Importing only the needed languages to reduce bundle size
- */
-import javascript from "react-syntax-highlighter/dist/cjs/languages/hljs/javascript";
-import python from "react-syntax-highlighter/dist/cjs/languages/hljs/python";
-import scala from "react-syntax-highlighter/dist/cjs/languages/hljs/scala";
-import typescript from "react-syntax-highlighter/dist/cjs/languages/hljs/typescript";
+//  */
+// import javascript from "react-syntax-highlighter/dist/cjs/languages/hljs/javascript";
+// import python from "react-syntax-highlighter/dist/cjs/languages/hljs/python";
+// import scala from "react-syntax-highlighter/dist/cjs/languages/hljs/scala";
+// import typescript from "react-syntax-highlighter/dist/cjs/languages/hljs/typescript";
 
-SyntaxHighlighter.registerLanguage("scala", scala);
-SyntaxHighlighter.registerLanguage("javascript", javascript);
-SyntaxHighlighter.registerLanguage("typescript", typescript);
-SyntaxHighlighter.registerLanguage("python", python);
+// SyntaxHighlighter.registerLanguage("scala", scala);
+// SyntaxHighlighter.registerLanguage("javascript", javascript);
+// SyntaxHighlighter.registerLanguage("typescript", typescript);
+// SyntaxHighlighter.registerLanguage("python", python);
 
 interface CodeBlockProps {
   children: string;
@@ -22,12 +22,13 @@ interface CodeBlockProps {
 export default function CodeBlock({ children, language }: CodeBlockProps) {
   return (
     <SyntaxHighlighter
-      style={atomOneLight}
+      style={coldarkCold}
       language={language ?? "plaintext"}
-      PreTag="div"
       customStyle={{
         background: "transparent",
         fontSize: "0.9em",
+        margin: 0,
+        padding: 0,
       }}
     >
       {String(children).replace(/\n$/, "")}

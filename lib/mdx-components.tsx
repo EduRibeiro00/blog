@@ -17,10 +17,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <p className="mb-4 text-gray-600 leading-relaxed">{children}</p>
     ),
     pre: ({ children, ...props }) => (
-      <pre
-        className="bg-gray-200 rounded px-4 py-2 mb-4 overflow-x-auto"
-        {...props}
-      >
+      <pre className="bg-gray-200 rounded p-4 mb-4 overflow-x-auto" {...props}>
         {children}
       </pre>
     ),
