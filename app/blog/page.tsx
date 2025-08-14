@@ -19,7 +19,7 @@ export default function BlogPage() {
           <p className="text-lg text-gray-600">
             In this page you can see all the blog posts I have made so far. I'll
             mainly talk about my software engineering journey and tech related
-            stuff, but occasionally you might find something related to other
+            stuff, but you might occasionally find something related to other
             hobbies of mine.
           </p>
         </div>

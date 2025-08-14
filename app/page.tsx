@@ -8,7 +8,7 @@ import {
   Laptop,
   Linkedin,
   Mail,
-  MessageCircle,
+  Newspaper,
 } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
@@ -34,14 +34,14 @@ interface HomeCardProps {
 function HomeCard({ link, icon, title, description }: HomeCardProps) {
   return (
     <Link href={link} className="group">
-      <Card className="h-full hover:shadow-lg transition-all duration-300 group-hover:scale-105 bg-white border-gray-200">
+      <Card className="h-full transition-all duration-300 bg-white border-gray-200">
         <CardContent className="p-6 text-center">
           <div className="mb-4 flex justify-center">
-            <div className="p-3 bg-blue-50 rounded-full group-hover:bg-blue-100 transition-colors">
-              {icon}
-            </div>
+            <div className="p-3 bg-blue-50 rounded-full ">{icon}</div>
           </div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
+          <h3 className="text-xl group-hover:underline font-semibold text-gray-900 mb-2">
+            {title}
+          </h3>
           <p className="text-gray-600 text-sm">{description}</p>
         </CardContent>
       </Card>
@@ -60,10 +60,10 @@ function SocialCard({ link, icon, name }: SocialCardProps) {
     <a href={link} target="_blank" rel="noopener noreferrer" className="group">
       <Button
         variant="outline"
-        className="w-full h-auto p-4 flex flex-col items-center gap-2 hover:bg-gray-50 bg-transparent"
+        className="w-full h-auto p-4 flex flex-col items-center gap-2 bg-transparent pointer-events-none"
       >
         {icon}
-        <span className="text-sm font-medium text-gray-700 group-hover:text-blue-600 transition-colors">
+        <span className="text-sm font-medium text-gray-700 group-hover:underline">
           {name}
         </span>
       </Button>
@@ -81,7 +81,7 @@ export default function HomePage() {
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
               Eduardo Ribeiro
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
               Hi, I'm Eduardo Ribeiro! I'm a {age} year old software engineer
               from Porto, Portugal, and currently based in Berlin, Germany. Here
               you can find out more stuff about me, my career path until now,
@@ -95,7 +95,7 @@ export default function HomePage() {
               link="/blog"
               title="Blog"
               icon={<BookOpen className="w-8 h-8 text-blue-600" />}
-              description="Read my latest articles on software development, tutorials, and tech insights."
+              description="Read my latest articles on software development, tech, among other things."
             />
             <HomeCard
               link="/cv"
@@ -107,7 +107,7 @@ export default function HomePage() {
               link="/projects"
               title="Projects"
               icon={<Code className="w-8 h-8 text-purple-600" />}
-              description="Explore my portfolio of web applications, open source contributions, and side projects."
+              description="Explore my portfolio of projects that I've developed or contributed to in the past."
             />
           </div>
 
@@ -127,39 +127,29 @@ export default function HomePage() {
                   <SocialCard
                     link="https://github.com/EduRibeiro00"
                     name="GitHub"
-                    icon={
-                      <Github className="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition-colors" />
-                    }
+                    icon={<Github className="w-6 h-6 text-gray-700" />}
                   />
 
                   <SocialCard
                     link="https://linkedin.com/in/eduardocribeiro"
                     name="LinkedIn"
-                    icon={
-                      <Linkedin className="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition-colors" />
-                    }
+                    icon={<Linkedin className="w-6 h-6 text-gray-700" />}
                   />
 
                   <SocialCard
                     link="https://eduardocribeiro.medium.com/"
                     name="Medium"
-                    icon={
-                      <MessageCircle className="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition-colors" />
-                    }
+                    icon={<Newspaper className="w-6 h-6 text-gray-700" />}
                   />
                   <SocialCard
                     link="https://dev.to/eduardocribeiro"
                     name="Dev.to"
-                    icon={
-                      <Laptop className="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition-colors" />
-                    }
+                    icon={<Laptop className="w-6 h-6 text-gray-700" />}
                   />
                   <SocialCard
                     link="mailto:eribeiro306@gmail.com"
                     name="Mail"
-                    icon={
-                      <Mail className="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition-colors" />
-                    }
+                    icon={<Mail className="w-6 h-6 text-gray-700" />}
                   />
                 </div>
               </CardContent>
