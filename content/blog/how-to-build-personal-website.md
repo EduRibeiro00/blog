@@ -43,7 +43,7 @@ If that convinced you to maybe try to build your own personal site or blog, I wi
 
 ## Gatsby
 
-![Gatsby image](/blog/images/gatsby.jpeg)
+![Gatsby image](/images/blog/gatsby.jpeg)
 
 To put it concisely, **"[GatsbyJS](https://www.gatsbyjs.com/) is a [React](https://reactjs.org/)-based, [GraphQL](https://graphql.org/) powered, static site generator"** (taken from [this post](https://www.mediacurrent.com/blog/what-is-gatsbyjs/)). It uses powerful pre-configuration to build a website that uses only static files (meaning it delivers the same files for all users/visitors) for incredibly fast page loads.
 
@@ -83,7 +83,7 @@ Here is a collection of some plugins that I have on my blog, that can also be of
 
 ## Tailwind CSS
 
-![TailwindCSS image](/blog/images/tailwindcss.png)
+![TailwindCSS image](/images/blog/tailwindcss.png)
 
 In order to build this blog, I wanted to explore some frameworks and libraries that could aid me in the CSS department. I had heard about [TailwindCSS](https://tailwindcss.com/) before, but never used it and didn't know what it was about. So I decided to try it.
 
@@ -95,7 +95,7 @@ To be fair, you don't really need a CSS framework for building your website/blog
 
 * It is a utility-first CSS framework meaning that, instead of giving you pre-designed components like `card` or `carousel`, it provides you with low-level classes like `font-medium`, `rotate-90` and `rounded-full`. It gives you the opportunity to fully customize your site and make sure that it is unique and doesn't look like something that was "pre-defined" or "pre-built", which can happen if you use, for example, Bootstrap headers or cards.
 * It's really easy to use, and you basically never have to leave your HTML. Here is a code snippet of one of the React components from this website:
-<img src="/blog/images/tailwind_snippet.png" alt="Tailwind Snippet" width="400"/>
+<img src="/images/blog/tailwind_snippet.png" alt="Tailwind Snippet" width="400"/>
 
 * It helps you build a responsive website. It has special classes for defining different layouts and components at specific breakpoints, so you never have to write media queries. Example: using the classes `w-16`, `md:w-32` and `lg:w-48` on a specific component helps you define different widths for different screen sizes. It also provides other prefixes like `hover:` and `focus:`. Simple.
 * Although Tailwind generates a lot of classes, it's build size is small in production, because it has the ability to purge and delete unused classes.

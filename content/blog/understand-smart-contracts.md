@@ -19,7 +19,7 @@ Smart Contracts are actually not that recent: in 1994, cryptographer [Nick Szabo
 
 The idea of smart contracts was finally able to be properly **put into practice with the introduction of blockchain** in 2009, and the creation of the first blockchain-based smart contracts came in 2015, after [Vitalik Buterin](https://pt.wikipedia.org/wiki/Vitalik_Buterin) created [Ethereum](https://ethereum.org/en/). Besides currently being the second-largest cryptocurrency on the planet, it is also a **platform that allows other blockchain applications to be built on top of it**, providing you the ability to create your own smart contracts using [Ether](https://ethereum.org/en/eth/), their currency.
 
-![Ethereum Image](/blog/images/ethereum_img.png)
+![Ethereum Image](/images/blog/ethereum_img.png)
 
 So, to put it concisely:
 
@@ -27,7 +27,7 @@ So, to put it concisely:
 
 It can be seen as a kind of **if-then statement**: if and only if a certain condition is met, then the transaction or payment is executed. When that "if" condition is validated, the "then" statement is automatically executed, and there is no chance for changing or tampering with these contracts. That "if" statement can be, for example, an expiration date.
 
-![Smart Contract Image](/blog/images/smart_contract_img.png)
+![Smart Contract Image](/images/blog/smart_contract_img.png)
 
 # How exactly do smart contracts work?
 
@@ -41,7 +41,7 @@ The smart contract can then be described, in a very simple fashion, as:
 
 "IF Alice pays Bob 30 Ether, THEN Alice will receive full ownership of the car."
 
-![Car Selling](/blog/images/car_selling.jpeg)
+![Car Selling](/images/blog/car_selling.jpeg)
 
 Alice and Bob then create the smart contract using the Ethereum platform.
 
