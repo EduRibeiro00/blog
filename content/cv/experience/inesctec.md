@@ -1,13 +1,11 @@
 ---
-position: Research Assistant - "Big Data for Energy"
-company_name: INESC TEC
-company_link: https://www.inesctec.pt/en
-start_date: Feb 2020
-end_date: May 2021
+title: Research Assistant - "Big Data for Energy"
+institution: INESC TEC
+institutionLink: https://www.inesctec.pt/en
 location: Porto, Portugal
-techs: [Python, Django, Pandas, Apache Cassandra, RabbitMQ, Celery, Nginx, Vue, Docker, GitLab CI/CD]
-order: 1
-cv_section: experience
+startDate: "2020-02"
+endDate: "2021-05"
+tags: [Python, Django, Pandas, Apache Cassandra, RabbitMQ, Celery, Nginx, Vue, Docker, GitLab CI/CD]
 ---
 * Developed a platform to foster energy analytics for R&D institutions, by automating energy and weather data collection and management.
 * Automated energy data collection by creating scripts that periodically fetch data from APIs of electricity data sources in Europe.

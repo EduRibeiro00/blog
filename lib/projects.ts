@@ -1,5 +1,5 @@
 import path from "path";
-import { fetchAllMdxFilesData, MdxFileData } from "./mdx-fetch";
+import { fetchAllMdxFilesData, MdxFileData } from "./data-fetch";
 
 const PROJECTS_DIR = path.join(process.cwd(), "content/projects");
 

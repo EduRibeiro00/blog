@@ -1,13 +1,11 @@
 ---
-position: Software Engineering Intern
-company_name: Critical Software
-company_link: https://www.criticalsoftware.com/en
-start_date: Jul 2020
-end_date: Jul 2020
+title: Software Engineering Intern
+institution: Critical Software
+institutionLink: https://www.criticalsoftware.com/en
 location: Coimbra, Portugal (Remote)
-techs: [Java, Kafka, SSL, XML]
-order: 3
-cv_section: experience
+startDate: "2020-06"
+endDate: "2020-07"
+tags: [Java, Kafka, SSL, XML]
 ---
 * Learned about the methodologies and tools used in critical projects, such as software for airplanes, trains and banks.
 * Built a real time chat service using Java and Kafka.

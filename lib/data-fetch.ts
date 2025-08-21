@@ -83,3 +83,8 @@ export async function fetchAllMdxFilesData<T>(
     });
   return (await Promise.all(allPromises)).filter((res) => res !== null);
 }
+
+export function fetchJsonData(filePath: string): any {
+  const fileContents = fs.readFileSync(filePath, "utf8");
+  return JSON.parse(fileContents);
+}

@@ -4,7 +4,14 @@ import {
   fetchMdxMetadataInDir,
   MdxFileData,
   MdxFileMetadata,
-} from "./mdx-fetch";
+} from "./data-fetch";
+
+export interface BlogPostMetadata {
+  title: string;
+  date: string;
+  description: string;
+  tags: string[];
+}
 
 const BLOG_POSTS_DIR = path.join(process.cwd(), "content/blog");
 const DEFAULT_METADATA_VALUES: BlogPostMetadata = {
@@ -13,13 +20,6 @@ const DEFAULT_METADATA_VALUES: BlogPostMetadata = {
   description: "",
   tags: [],
 };
-
-export interface BlogPostMetadata {
-  title: string;
-  date: string;
-  description: string;
-  tags: string[];
-}
 
 export function getBlogPostsMetadata(): MdxFileMetadata<BlogPostMetadata>[] {
   const allPostsMetadata = fetchMdxMetadataInDir<BlogPostMetadata>(

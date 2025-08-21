@@ -1,70 +1,56 @@
-import fs from "fs";
-import matter from "gray-matter";
+import { CVPersonalInfo, PERSONAL_INFO } from "@/content/cv/personal-info";
 import path from "path";
+import { fetchAllMdxFilesData, MdxFileData } from "./data-fetch";
 
-export interface CVEntry {
-  slug: string;
+export enum CVEntryType {
+  EXPERIENCE = "experience",
+  EDUCATION = "education",
+  OTHER = "other",
+}
+
+export interface CVEntryMetadata {
   title: string;
-  company?: string;
-  location?: string;
+  institution: string;
+  institutionLink?: string;
+  location: string;
   startDate: string;
   endDate: string;
-  type: "experience" | "education" | "volunteering";
-  content: string;
+  tags?: string[];
 }
 
-export interface PersonalInfo {
-  name: string;
-  title: string;
-  company: string;
-  bio: string;
-  skills: string[];
-  languages: { language: string; proficiency: string }[];
-  interests: string[];
+export interface FullCVData {
+  personalInfo: CVPersonalInfo;
+  cvEntries: { [key in CVEntryType]: MdxFileData<CVEntryMetadata>[] };
 }
 
-const cvDirectory = path.join(process.cwd(), "content/cv");
+const CV_DIR = path.join(process.cwd(), "content/cv");
+const DEFAULT_METADATA_VALUES: CVEntryMetadata = {
+  title: "Untitled",
+  institution: "Untitled",
+  location: "Not specified",
+  startDate: "",
+  endDate: "Present",
+  tags: [],
+};
 
-export function getCVEntries(
-  type: "experience" | "education" | "volunteering"
-): CVEntry[] {
-  const typeDirectory = path.join(cvDirectory, type);
-
-  if (!fs.existsSync(typeDirectory)) {
-    return [];
+export async function getFullCVData(): Promise<FullCVData> {
+  const cvEntries: Partial<FullCVData["cvEntries"]> = {};
+  for (const entryType of Object.values(CVEntryType)) {
+    const typeDir = path.join(CV_DIR, entryType);
+    const cvTypeEntries = await fetchAllMdxFilesData<CVEntryMetadata>(
+      typeDir,
+      DEFAULT_METADATA_VALUES
+    );
+    cvEntries[entryType] = cvTypeEntries.sort((a, b) => {
+      if (a.metadata.endDate === b.metadata.endDate) {
+        return a.metadata.startDate.localeCompare(b.metadata.startDate);
+      }
+      return b.metadata.endDate.localeCompare(a.metadata.endDate);
+    });
   }
 
-  const fileNames = fs.readdirSync(typeDirectory);
-  const entries = fileNames
-    .filter((fileName) => fileName.endsWith(".md") || fileName.endsWith(".mdx"))
-    .map((fileName) => {
-      const slug = fileName.replace(/\.(md|mdx)$/, "");
-      const fullPath = path.join(typeDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-      const { data, content } = matter(fileContents);
-
-      return {
-        slug,
-        title: data.title || "Untitled",
-        company: data.company,
-        location: data.location,
-        startDate: data.startDate || "",
-        endDate: data.endDate || "Present",
-        type,
-        content,
-      };
-    });
-
-  // Sort by start date (most recent first)
-  return entries.sort((a, b) => {
-    const dateA = new Date(a.startDate);
-    const dateB = new Date(b.startDate);
-    return dateB.getTime() - dateA.getTime();
-  });
-}
-
-export function getPersonalInfo(): PersonalInfo {
-  const personalInfoPath = path.join(cvDirectory, "personal-info.json");
-  const fileContents = fs.readFileSync(personalInfoPath, "utf8");
-  return JSON.parse(fileContents);
+  return {
+    personalInfo: PERSONAL_INFO,
+    cvEntries: cvEntries as FullCVData["cvEntries"],
+  };
 }

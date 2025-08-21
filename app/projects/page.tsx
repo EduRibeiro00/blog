@@ -3,8 +3,8 @@ import IconDetailBadge from "@/components/custom/icon-detail-badge";
 import IconLinkButton from "@/components/custom/icon-link-button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { MdxFileData } from "@/lib/data-fetch";
 import { useMDXComponents } from "@/lib/mdx-components";
-import { MdxFileData } from "@/lib/mdx-fetch";
 import { getProjectsData, ProjectMetadata } from "@/lib/projects";
 import {
   Calendar,
