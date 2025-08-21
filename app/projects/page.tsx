@@ -1,35 +1,54 @@
 import Backlink from "@/components/custom/backlink";
+import IconDetailBadge from "@/components/custom/icon-detail-badge";
+import IconLinkButton from "@/components/custom/icon-link-button";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Project, PROJECTS } from "@/content/projects/projects";
-import { Calendar, ExternalLink, Github, Globe, Users } from "lucide-react";
+import { useMDXComponents } from "@/lib/mdx-components";
+import { MdxFileData } from "@/lib/mdx-fetch";
+import { getProjectsData, ProjectMetadata } from "@/lib/projects";
+import {
+  Calendar,
+  ExternalLink,
+  Github,
+  Globe,
+  LucideIcon,
+  Users,
+} from "lucide-react";
+import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
-import { ReactNode } from "react";
 
 function getTeamSizeText(teamSize: number): string {
   return teamSize === 1 ? "Individual project" : `Team of ${teamSize} people`;
 }
 
 function getLinkIcon(type: string): {
-  icon: ReactNode;
+  icon: LucideIcon;
   label: string;
 } {
   switch (type) {
     case "website":
-      return { icon: <Globe className="w-4 h-4" />, label: "Website Link" };
+      return {
+        icon: Globe,
+        label: "Website Link",
+      };
     case "github":
-      return { icon: <Github className="w-4 h-4" />, label: "GitHub Link" };
+      return {
+        icon: Github,
+        label: "GitHub Link",
+      };
     case "demo":
-      return { icon: <ExternalLink className="w-4 h-4" />, label: "Demo Link" };
+      return {
+        icon: ExternalLink,
+        label: "Demo Link",
+      };
     case "documentation":
       return {
-        icon: <ExternalLink className="w-4 h-4" />,
+        icon: ExternalLink,
         label: "Link to Docs",
       };
     default:
       return {
-        icon: <ExternalLink className="w-4 h-4" />,
+        icon: ExternalLink,
         label: "Link",
       };
   }
@@ -39,29 +58,30 @@ function getProjectImagePath(imageName: string): string {
   return `/images/projects/${imageName}`;
 }
 
-function renderProjectDescription(description: string[]): ReactNode[] {
-  return description.map((item, index) => {
-    /* Simple markdown parsing for bold text */
-    const processedText = item.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-    return (
-      <p
-        key={index}
-        className="text-gray-600 text-sm mb-2 last:mb-0"
-        dangerouslySetInnerHTML={{ __html: processedText }}
-      />
-    );
+function formatDate(dateStr: string): string {
+  const [year, month] = dateStr.split("-");
+  const date = new Date(Number(year), Number(month) - 1);
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
   });
 }
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({
+  metadata,
+  mdxContent,
+  mdxSource,
+}: MdxFileData<ProjectMetadata>) {
+  const mdxComponents = useMDXComponents({});
+
   return (
     <Card className="overflow-hidden py-0">
       <CardContent className="p-0">
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/3 relative">
             <Image
-              src={getProjectImagePath(project.coverImage)}
-              alt={project.title}
+              src={getProjectImagePath(metadata.image)}
+              alt={metadata.title}
               width={300}
               height={200}
               className="w-full h-48 md:h-full object-cover"
@@ -71,24 +91,26 @@ function ProjectCard({ project }: { project: Project }) {
           <div className="md:w-2/3 p-6">
             <div className="mb-4">
               <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                {project.title}
+                {metadata.title}
               </h3>
 
               <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-3">
-                <div className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
-                  <span>
-                    {project.startDate} - {project.endDate}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <Users className="w-4 h-4" />
-                  <span>{getTeamSizeText(project.teamSize)}</span>
-                </div>
+                <IconDetailBadge
+                  Icon={Calendar}
+                  size="md"
+                  text={`${formatDate(metadata.startDate)} - ${formatDate(
+                    metadata.endDate
+                  )}`}
+                />
+                <IconDetailBadge
+                  Icon={Users}
+                  size="md"
+                  text={getTeamSizeText(metadata.teamSize)}
+                />
               </div>
 
               <div className="flex flex-wrap gap-2 mb-4">
-                {project.tags.map((tech) => (
+                {metadata.tags.map((tech) => (
                   <Badge
                     key={tech}
                     variant="secondary"
@@ -101,31 +123,25 @@ function ProjectCard({ project }: { project: Project }) {
             </div>
 
             <div className="text-gray-600 mb-4 leading-relaxed">
-              {renderProjectDescription(project.description)}
+              <MDXRemote
+                {...mdxSource}
+                source={mdxContent}
+                components={mdxComponents}
+              />
             </div>
 
-            {Object.keys(project.links).length > 0 && (
+            {Object.keys(metadata.links ?? {}).length > 0 && (
               <div className="flex flex-wrap gap-2">
-                {Object.entries(project.links).map(([type, link], index) => {
+                {Object.entries(metadata.links).map(([type, link], index) => {
                   const { label, icon } = getLinkIcon(type);
                   return (
-                    <Button
+                    <IconLinkButton
                       key={index}
-                      variant="outline"
-                      size="sm"
-                      asChild
-                      className="text-blue-600 border-blue-200 bg-transparent"
-                    >
-                      <a
-                        href={link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 group"
-                      >
-                        {icon}
-                        <span className="group-hover:underline">{label}</span>
-                      </a>
-                    </Button>
+                      Icon={icon}
+                      link={link}
+                      label={label}
+                      variant="row"
+                    />
                   );
                 })}
               </div>
@@ -137,7 +153,9 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const projectsData = await getProjectsData();
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-5xl mx-auto">
@@ -155,8 +173,8 @@ export default function ProjectsPage() {
         </div>
 
         <div className="space-y-8">
-          {PROJECTS.map((project) => (
-            <ProjectCard key={project.title} project={project} />
+          {projectsData.map((project, projectIdx) => (
+            <ProjectCard key={projectIdx} {...project} />
           ))}
         </div>
       </div>

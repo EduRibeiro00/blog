@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import BlogpostBadge from "./blogpost-badge";
+import IconDetailBadge from "./icon-detail-badge";
 
 interface BlogpostCardProps {
   post: BlogPostMetadata;
@@ -44,7 +44,7 @@ export default function BlogpostCard({
             </div>
           </div>
           <div className="flex items-center gap-4 text-sm text-gray-500">
-            <BlogpostBadge
+            <IconDetailBadge
               Icon={CalendarDays}
               text={new Date(post.date).toLocaleDateString("en-US", {
                 year: "numeric",
@@ -53,7 +53,7 @@ export default function BlogpostCard({
               })}
               size="sm"
             />
-            <BlogpostBadge
+            <IconDetailBadge
               Icon={Clock}
               // TODO: change this to use actual expected reading time */
               text="4 mins"

@@ -1,7 +1,7 @@
 import Backlink from "@/components/custom/backlink";
-import BlogpostBadge from "@/components/custom/blogpost-badge";
+import IconDetailBadge from "@/components/custom/icon-detail-badge";
 import { Badge } from "@/components/ui/badge";
-import { getAllPostSlugs, getPostBySlug } from "@/lib/blog";
+import { getPostBySlug } from "@/lib/blog";
 import { useMDXComponents } from "@/lib/mdx-components";
 import { CalendarDays, Clock } from "lucide-react";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -9,13 +9,6 @@ import { notFound } from "next/navigation";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  const slugs = getAllPostSlugs();
-  return slugs.map((slug) => ({
-    slug,
-  }));
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -27,6 +20,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const { metadata: postMetadata, mdxContent, mdxSource } = post;
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
@@ -34,7 +29,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <Backlink href="/blog" text="Back to blog" />
 
           <div className="flex flex-wrap gap-2 mb-4">
-            {post.tags.map((tag) => (
+            {postMetadata.tags.map((tag) => (
               <Badge key={tag} variant="secondary">
                 {tag}
               </Badge>
@@ -42,21 +37,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           <h1 className="text-5xl font-bold text-gray-900 p-0 mb-4">
-            {post.title}
+            {postMetadata.title}
           </h1>
 
           <div className="flex items-center gap-4 text-sm text-gray-500">
             {/* TODO: make the text here bigger */}
-            <BlogpostBadge
+            <IconDetailBadge
               Icon={CalendarDays}
-              text={new Date(post.date).toLocaleDateString("en-US", {
+              text={new Date(postMetadata.date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
               })}
               size="md"
             />
-            <BlogpostBadge
+            <IconDetailBadge
               Icon={Clock}
               // TODO: change this to use actual expected reading time */
               text="4 mins"
@@ -67,8 +62,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         <article className="prose prose-lg max-w-none">
           <MDXRemote
-            {...post.source}
-            source={post.content}
+            {...mdxSource}
+            source={mdxContent}
             components={mdxComponents}
           />
         </article>

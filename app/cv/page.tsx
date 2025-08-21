@@ -107,10 +107,7 @@ export default async function CVPage() {
             <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
               <div className="relative">
                 <Image
-                  src={
-                    personalInfo.photo ||
-                    "/placeholder.svg?height=200&width=200&query=professional headshot"
-                  }
+                  src={"/images/cv/profile-photo.jpg"}
                   alt={personalInfo.name}
                   width={200}
                   height={200}

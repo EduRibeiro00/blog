@@ -18,7 +18,6 @@ export interface PersonalInfo {
   title: string;
   company: string;
   bio: string;
-  photo: string;
   skills: string[];
   languages: { language: string; proficiency: string }[];
   interests: string[];
@@ -66,25 +65,6 @@ export function getCVEntries(
 
 export function getPersonalInfo(): PersonalInfo {
   const personalInfoPath = path.join(cvDirectory, "personal-info.json");
-
-  if (!fs.existsSync(personalInfoPath)) {
-    // Return default data if file doesn't exist
-    return {
-      name: "John Doe",
-      title: "Senior Software Engineer",
-      company: "Tech Company Inc.",
-      bio: "Passionate software engineer with 5+ years of experience building scalable web applications and leading development teams.",
-      photo: "/profile-photo.png",
-      skills: ["JavaScript", "Python", "React", "Node.js", "AWS", "Docker"],
-      languages: [
-        { language: "English", proficiency: "Native" },
-        { language: "Spanish", proficiency: "Fluent" },
-        { language: "French", proficiency: "Intermediate" },
-      ],
-      interests: ["Open Source", "Machine Learning", "Photography", "Hiking"],
-    };
-  }
-
   const fileContents = fs.readFileSync(personalInfoPath, "utf8");
   return JSON.parse(fileContents);
 }

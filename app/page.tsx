@@ -1,3 +1,4 @@
+import IconLinkButton from "@/components/custom/icon-link-button";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -124,32 +125,35 @@ export default function HomePage() {
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                  <SocialCard
+                  <IconLinkButton
                     link="https://github.com/EduRibeiro00"
-                    name="GitHub"
-                    icon={<Github className="w-6 h-6 text-gray-700" />}
+                    label="GitHub"
+                    Icon={Github}
+                    variant="col"
                   />
-
-                  <SocialCard
+                  <IconLinkButton
                     link="https://linkedin.com/in/eduardocribeiro"
-                    name="LinkedIn"
-                    icon={<Linkedin className="w-6 h-6 text-gray-700" />}
+                    label="LinkedIn"
+                    Icon={Linkedin}
+                    variant="col"
                   />
-
-                  <SocialCard
+                  <IconLinkButton
                     link="https://eduardocribeiro.medium.com/"
-                    name="Medium"
-                    icon={<Newspaper className="w-6 h-6 text-gray-700" />}
+                    label="Medium"
+                    Icon={Newspaper}
+                    variant="col"
                   />
-                  <SocialCard
+                  <IconLinkButton
                     link="https://dev.to/eduardocribeiro"
-                    name="Dev.to"
-                    icon={<Laptop className="w-6 h-6 text-gray-700" />}
+                    label="Dev.to"
+                    Icon={Laptop}
+                    variant="col"
                   />
-                  <SocialCard
+                  <IconLinkButton
                     link="mailto:eribeiro306@gmail.com"
-                    name="Mail"
-                    icon={<Mail className="w-6 h-6 text-gray-700" />}
+                    label="Mail"
+                    Icon={Mail}
+                    variant="col"
                   />
                 </div>
               </CardContent>
