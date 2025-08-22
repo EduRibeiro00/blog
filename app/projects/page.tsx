@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MdxFileData } from "@/lib/data-fetch";
 import { useMDXComponents } from "@/lib/mdx-components";
 import { getProjectsData, ProjectMetadata } from "@/lib/projects";
+import { formatTimeRangeStr } from "@/lib/utils";
 import {
   Calendar,
   ExternalLink,
@@ -58,15 +59,6 @@ function getProjectImagePath(imageName: string): string {
   return `/images/projects/${imageName}`;
 }
 
-function formatDate(dateStr: string): string {
-  const [year, month] = dateStr.split("-");
-  const date = new Date(Number(year), Number(month) - 1);
-  return date.toLocaleDateString("en-US", {
-    month: "short",
-    year: "numeric",
-  });
-}
-
 function ProjectCard({
   metadata,
   mdxContent,
@@ -98,9 +90,10 @@ function ProjectCard({
                 <IconDetailBadge
                   Icon={Calendar}
                   size="md"
-                  text={`${formatDate(metadata.startDate)} - ${formatDate(
+                  text={formatTimeRangeStr(
+                    metadata.startDate,
                     metadata.endDate
-                  )}`}
+                  )}
                 />
                 <IconDetailBadge
                   Icon={Users}

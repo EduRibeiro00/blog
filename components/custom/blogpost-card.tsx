@@ -1,4 +1,5 @@
 import { BlogPostMetadata } from "@/lib/blog";
+import { MdxFileMetadata } from "@/lib/data-fetch";
 import { CalendarDays, Clock } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "../ui/badge";
@@ -12,7 +13,7 @@ import {
 import IconDetailBadge from "./icon-detail-badge";
 
 interface BlogpostCardProps {
-  post: BlogPostMetadata;
+  post: MdxFileMetadata<BlogPostMetadata>;
   isNew?: boolean;
 }
 

@@ -1,7 +1,7 @@
 ---
 title: Software Development Engineer Intern
 institution: Amazon Web Services
-intitutionLink: https://aws.amazon.com/en/
+institutionLink: https://aws.amazon.com/en/
 location: Berlin, Germany
 startDate: "2021-06"
 endDate: "2021-09"
