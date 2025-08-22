@@ -1,5 +1,4 @@
 import IconLinkButton from "@/components/custom/icon-link-button";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   BookOpen,
@@ -35,54 +34,32 @@ interface HomeCardProps {
 function HomeCard({ link, icon, title, description }: HomeCardProps) {
   return (
     <Link href={link} className="group">
-      <Card className="h-full transition-all duration-300 bg-white border-gray-200">
-        <CardContent className="p-6 text-center">
+      <Card className="h-full bg-white border-gray-200">
+        <CardContent className="px-6 py-2 text-center">
           <div className="mb-4 flex justify-center">
             <div className="p-3 bg-blue-50 rounded-full ">{icon}</div>
           </div>
           <h3 className="text-xl group-hover:underline font-semibold text-gray-900 mb-2">
             {title}
           </h3>
-          <p className="text-gray-600 text-sm">{description}</p>
+          <p className="text-gray-600 mx-2 text-sm">{description}</p>
         </CardContent>
       </Card>
     </Link>
   );
 }
 
-interface SocialCardProps {
-  link: string;
-  icon: ReactNode;
-  name: string;
-}
-
-function SocialCard({ link, icon, name }: SocialCardProps) {
-  return (
-    <a href={link} target="_blank" rel="noopener noreferrer" className="group">
-      <Button
-        variant="outline"
-        className="w-full h-auto p-4 flex flex-col items-center gap-2 bg-transparent pointer-events-none"
-      >
-        {icon}
-        <span className="text-sm font-medium text-gray-700 group-hover:underline">
-          {name}
-        </span>
-      </Button>
-    </a>
-  );
-}
-
 export default function HomePage() {
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      <div className="relative z-10 container mx-auto px-4 py-16">
+    <div>
+      <div className="relative container mx-auto px-4 pt-9">
         <div className="background-animation"></div>
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
               Eduardo Ribeiro
             </h1>
-            <p className="text-xl md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl md:text-lg text-gray-600 max-w-3xl mx-auto">
               Hi, I'm Eduardo Ribeiro! I'm a {age} year old software engineer
               from Porto, Portugal, and currently based in Berlin, Germany. Here
               you can find out more stuff about me, my career path until now,
@@ -113,8 +90,8 @@ export default function HomePage() {
           </div>
 
           <div className="flex justify-center">
-            <Card className="w-full max-w-2xl hover:shadow-lg transition-all duration-300 bg-white border-gray-200">
-              <CardContent className="p-6">
+            <Card className="w-full max-w-2xl bg-white border-gray-200">
+              <CardContent className="px-6">
                 <div className="text-center mb-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     Connect With Me
