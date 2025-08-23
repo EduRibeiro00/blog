@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
+import { ReactNode } from "react";
 
 function CVEntryCard({
   metadata,
@@ -29,9 +30,9 @@ function CVEntryCard({
   const mdxComponents = useMDXComponents({});
 
   return (
-    <Card className="mb-6">
-      <CardHeader className="pb-3">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+    <Card className="mb-6 pb-2">
+      <CardHeader>
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-x-7">
           <div>
             <CardTitle className="text-xl">{metadata.title}</CardTitle>
             <p className="text-lg font-medium">
@@ -49,7 +50,7 @@ function CVEntryCard({
               )}
             </p>
           </div>
-          <div className="flex flex-col items-start gap-2 text-sm text-gray-500">
+          <div className="flex flex-col items-start gap-2 text-sm text-gray-500 whitespace-nowrap">
             <IconDetailBadge
               Icon={Calendar}
               size="md"
@@ -59,7 +60,7 @@ function CVEntryCard({
           </div>
         </div>
       </CardHeader>
-      <CardContent className="pt-0">
+      <CardContent>
         <MDXRemote
           {...mdxSource}
           source={mdxContent}
@@ -92,6 +93,30 @@ function CVSection({
   );
 }
 
+function CVSideCard({
+  title,
+  Icon,
+  children,
+}: {
+  title: string;
+  Icon: LucideIcon;
+  children: ReactNode;
+}) {
+  return (
+    <Card>
+      <CardContent>
+        <CardTitle className="text-2xl text-gray-900 mb-4">
+          <div className="flex items-center gap-2">
+            <Icon className="w-6 h-6" />
+            {title}
+          </div>
+        </CardTitle>
+        {children}
+      </CardContent>
+    </Card>
+  );
+}
+
 export default async function CVPage() {
   const { personalInfo, cvEntries } = await getFullCVData();
 
@@ -120,7 +145,7 @@ export default async function CVPage() {
                   {personalInfo.title} <span className="font-normal">@</span>{" "}
                   {personalInfo.institution}
                 </h2>
-                <p className="text-gray-700 leading-relaxed max-w-2xl">
+                <p className="text-gray-600 leading-relaxed max-w-2xl">
                   {personalInfo.bio}
                 </p>
               </div>
@@ -156,16 +181,8 @@ export default async function CVPage() {
           </div>
 
           <div className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-2xl text-gray-900">
-                  <div className="flex items-center gap-2">
-                    <WandSparkles className="w-6 h-6" />
-                    Skills
-                  </div>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col gap-4">
+            <CVSideCard title="Skills" Icon={WandSparkles}>
+              <div className="flex flex-col gap-4">
                 {personalInfo.skills.map(({ level, skills }) => (
                   <div key={level}>
                     <p className="font-semibold mb-2">{level}</p>
@@ -182,78 +199,50 @@ export default async function CVPage() {
                     </div>
                   </div>
                 ))}
-              </CardContent>
-            </Card>
+              </div>
+            </CVSideCard>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-2xl text-gray-900">
-                  <div className="flex items-center gap-2">
-                    <ShieldCheck className="w-6 h-6" />
-                    Certificates
+            <CVSideCard title="Certificates" Icon={ShieldCheck}>
+              <div className="flex flex-col gap-4">
+                {personalInfo.certificates.map((certInfo, index) => (
+                  <div key={index}>
+                    <p className="font-semibold text-gray-900">
+                      {certInfo.title}
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      {certInfo.description}
+                    </p>
                   </div>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {personalInfo.certificates.map((certInfo, index) => (
-                    <div key={index}>
-                      <p className="font-semibold text-gray-900">
-                        {certInfo.title}
-                      </p>
-                      <p className="text-sm">{certInfo.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                ))}
+              </div>
+            </CVSideCard>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-2xl text-gray-900">
-                  <div className="flex items-center gap-2">
-                    <Languages className="w-6 h-6" />
-                    Languages
+            <CVSideCard title="Languages" Icon={Languages}>
+              <div className="flex flex-col gap-4">
+                {personalInfo.languages.map((langInfo, index) => (
+                  <div key={index}>
+                    <p className="font-semibold text-gray-900">
+                      {langInfo.language}
+                    </p>
+                    <p className="text-sm text-gray-600">{langInfo.level}</p>
                   </div>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {personalInfo.languages.map((langInfo, index) => (
-                    <div key={index}>
-                      <p className="font-semibold text-gray-900">
-                        {langInfo.language}
-                      </p>
-                      <p className="text-sm">{langInfo.level}</p>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                ))}
+              </div>
+            </CVSideCard>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-2xl text-gray-900">
-                  <div className="flex items-center gap-2">
-                    <MessageCircleHeart className="w-6 h-6" />
-                    Interests
-                  </div>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {personalInfo.interests.map((interest) => (
-                    <Badge
-                      key={interest}
-                      variant="secondary"
-                      className="text-gray-500"
-                    >
-                      {interest}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <CVSideCard title="Interests" Icon={MessageCircleHeart}>
+              <div className="flex flex-wrap gap-2">
+                {personalInfo.interests.map((interest) => (
+                  <Badge
+                    key={interest}
+                    variant="secondary"
+                    className="text-gray-500"
+                  >
+                    {interest}
+                  </Badge>
+                ))}
+              </div>
+            </CVSideCard>
           </div>
         </div>
       </div>
