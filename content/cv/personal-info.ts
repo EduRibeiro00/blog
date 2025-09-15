@@ -43,7 +43,7 @@ export const PERSONAL_INFO: CVPersonalInfo = {
     link: "https://eduardocribeiro.medium.com/",
   },
   cvPdfLink:
-    "https://drive.google.com/file/d/1vXRL9ETMbWERiQMkoj4qUMN4L1QH-DTM/view?usp=sharing",
+    "https://drive.google.com/file/d/1rB_650EuTGV4cZG_4msYQEc19y80JgRd/view?usp=drive_link",
   skills: [
     {
       level: "Proficient",

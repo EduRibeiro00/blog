@@ -1,5 +1,6 @@
 import Backlink from "@/components/custom/backlink";
 import IconDetailBadge from "@/components/custom/icon-detail-badge";
+import SocialLinks from "@/components/custom/social-links";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getFullCVData, type CVEntryMetadata } from "@/lib/cv";
@@ -145,10 +146,13 @@ export default async function CVPage() {
                   {personalInfo.title} <span className="font-normal">@</span>{" "}
                   {personalInfo.institution}
                 </h2>
-                <p className="text-gray-600 leading-relaxed max-w-2xl">
+                <p className="text-gray-600 leading-relaxed">
                   {personalInfo.bio}
                 </p>
               </div>
+            </div>
+            <div className="mt-8">
+              <SocialLinks />
             </div>
           </CardContent>
         </Card>

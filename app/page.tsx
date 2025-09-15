@@ -1,15 +1,6 @@
-import IconLinkButton from "@/components/custom/icon-link-button";
+import SocialLinks from "@/components/custom/social-links";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  BookOpen,
-  Code,
-  FileText,
-  Github,
-  Laptop,
-  Linkedin,
-  Mail,
-  Newspaper,
-} from "lucide-react";
+import { BookOpen, Code, FileText } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
 
@@ -90,7 +81,7 @@ export default function HomePage() {
           </div>
 
           <div className="flex justify-center">
-            <Card className="w-full max-w-2xl bg-white border-gray-200">
+            <Card className="w-full max-w-3xl bg-white border-gray-200">
               <CardContent className="px-6">
                 <div className="text-center mb-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -101,38 +92,7 @@ export default function HomePage() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                  <IconLinkButton
-                    link="https://github.com/EduRibeiro00"
-                    label="GitHub"
-                    Icon={Github}
-                    variant="col"
-                  />
-                  <IconLinkButton
-                    link="https://linkedin.com/in/eduardocribeiro"
-                    label="LinkedIn"
-                    Icon={Linkedin}
-                    variant="col"
-                  />
-                  <IconLinkButton
-                    link="https://eduardocribeiro.medium.com/"
-                    label="Medium"
-                    Icon={Newspaper}
-                    variant="col"
-                  />
-                  <IconLinkButton
-                    link="https://dev.to/eduardocribeiro"
-                    label="Dev.to"
-                    Icon={Laptop}
-                    variant="col"
-                  />
-                  <IconLinkButton
-                    link="mailto:eribeiro306@gmail.com"
-                    label="Mail"
-                    Icon={Mail}
-                    variant="col"
-                  />
-                </div>
+                <SocialLinks />
               </CardContent>
             </Card>
           </div>
