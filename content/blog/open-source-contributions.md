@@ -1,7 +1,7 @@
 ---
 title: "How to Start Contributing to Open Source Projects"
 date: "2021-03-21"
-description: "Something extremely interesting about this blog post."
+description: "Contributing to open source projects can be one of the key activities that may set you apart as a software engineer. It's  good way of gaining experience working with large codebases, and there are plenty of interesting and useful projects available to everyone. This post goes over why and how you can start contributing to open source projects, and list some examples that might interest you."
 tags: []
 ---
 

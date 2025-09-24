@@ -1,7 +1,7 @@
 ---
 title: "Understand Blockchain and Smart Contracts: Part 2"
 date: "2021-03-14"
-description: "Something extremely interesting about this blog post."
+description: "This is the second post of a 2-part series in which we talk about the concepts of blockchain and smart contracts, clarifying what they are, how they work, and what is their purpose."
 tags: []
 ---
 

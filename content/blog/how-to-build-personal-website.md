@@ -1,7 +1,7 @@
 ---
 title: "Why and How You Can Build Your Personal Website/Blog (2021 version)"
 date: "2021-02-28"
-description: "Something extremely interesting about this blog post."
+description: "In this post, we go over why I think having a personal website and blog is important as a software developer, and how you can create one for yourself."
 tags: []
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Get Started With Scala"
 date: "2021-04-04"
-description: "Something extremely interesting about this blog post."
+description: "A brief introduction to this programming language that I've been learning."
 tags: []
 ---
 

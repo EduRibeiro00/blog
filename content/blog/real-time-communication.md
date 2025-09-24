@@ -1,7 +1,7 @@
 ---
 title: "How to get updates from a server in real-time?"
 date: "2021-04-11"
-description: "Something extremely interesting about this blog post."
+description: "Some applications and services require clients to receive constant real-time updates from servers, like messaging apps or stock market platforms. This blog post goes over some of the alternatives that can be considered for supporting this type of connections."
 tags: []
 ---
 

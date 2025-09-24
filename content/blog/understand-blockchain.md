@@ -1,7 +1,7 @@
 ---
 title: "Understand Blockchain and Smart Contracts: Part 1"
 date: "2021-03-07"
-description: "Something extremely interesting about this blog post."
+description: "This post covers my initial research on blockchain and smart contracts, topics that have caught my attention recently."
 tags: []
 ---
 
