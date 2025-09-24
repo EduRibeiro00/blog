@@ -14,12 +14,9 @@ function formatMonthDate(dateStr: string) {
   });
 }
 
-export function formatTimeRangeStr(
-  startDate: string,
-  endDate?: string
-): string {
+export function formatTimeRangeStr(startDate: string, endDate: string): string {
   const startDateStr = formatMonthDate(startDate);
-  const endDateStr = endDate ? formatMonthDate(endDate) : "Present";
+  const endDateStr = endDate === "Present" ? endDate : formatMonthDate(endDate);
 
   return `${startDateStr} - ${endDateStr}`;
 }

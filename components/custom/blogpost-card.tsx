@@ -24,7 +24,7 @@ export default function BlogpostCard({
   return (
     <Card
       key={post.slug}
-      className="group cursor-pointer py-4 border-0 border-y-2 -mb-0.5 shadow-none rounded-none"
+      className="group cursor-pointer py-4 border-0 border-y-2 -mb-0.5 rounded-none"
     >
       <Link href={`/blog/${post.slug}`}>
         <CardHeader>

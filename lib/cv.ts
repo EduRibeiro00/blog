@@ -28,7 +28,7 @@ const DEFAULT_METADATA_VALUES: CVEntryMetadata = {
   title: "Untitled",
   institution: "Untitled",
   location: "Not specified",
-  startDate: "",
+  startDate: "Present",
   endDate: "Present",
   tags: [],
 };

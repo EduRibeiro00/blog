@@ -135,7 +135,7 @@ export default async function CVPage() {
                   alt={personalInfo.name}
                   width={200}
                   height={200}
-                  className="w-48 h-48 rounded-full object-cover border-4 border-gray-100 shadow-lg"
+                  className="w-48 h-48 rounded-full object-cover border-4 border-gray-100"
                 />
               </div>
               <div className="flex-1 text-center md:text-left">
