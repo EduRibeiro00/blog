@@ -1,4 +1,4 @@
-import { BlogPostMetadata } from "@/lib/blog";
+import { ProcessedBlogPostMetadata } from "@/lib/blog";
 import { MdxFileMetadata } from "@/lib/data-fetch";
 import { CalendarDays, Clock } from "lucide-react";
 import Link from "next/link";
@@ -13,7 +13,7 @@ import {
 import IconDetailBadge from "./icon-detail-badge";
 
 interface BlogpostCardProps {
-  post: MdxFileMetadata<BlogPostMetadata>;
+  post: MdxFileMetadata<ProcessedBlogPostMetadata>;
   isNew?: boolean;
 }
 
@@ -56,8 +56,9 @@ export default function BlogpostCard({
             />
             <IconDetailBadge
               Icon={Clock}
-              // TODO: change this to use actual expected reading time */
-              text="4 mins"
+              text={`${post.readingTime} ${
+                post.readingTime === 1 ? "min" : "mins"
+              }`}
               size="sm"
             />
           </div>

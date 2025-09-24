@@ -41,7 +41,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </h1>
 
           <div className="flex items-center gap-4 text-sm text-gray-500">
-            {/* TODO: make the text here bigger */}
             <IconDetailBadge
               Icon={CalendarDays}
               text={new Date(postMetadata.date).toLocaleDateString("en-US", {
@@ -53,8 +52,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             />
             <IconDetailBadge
               Icon={Clock}
-              // TODO: change this to use actual expected reading time */
-              text="4 mins"
+              text={`${postMetadata.readingTime} ${
+                postMetadata.readingTime === 1 ? "min" : "mins"
+              }`}
               size="md"
             />
           </div>

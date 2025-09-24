@@ -1,7 +1,8 @@
 import path from "path";
+import readingTime from "reading-time";
 import {
+  fetchAllMdxFilesData,
   fetchMdxFileData,
-  fetchMdxMetadataInDir,
   MdxFileData,
   MdxFileMetadata,
 } from "./data-fetch";
@@ -13,6 +14,10 @@ export interface BlogPostMetadata {
   tags: string[];
 }
 
+export interface ProcessedBlogPostMetadata extends BlogPostMetadata {
+  readingTime: number;
+}
+
 const BLOG_POSTS_DIR = path.join(process.cwd(), "content/blog");
 const DEFAULT_METADATA_VALUES: BlogPostMetadata = {
   title: "Untitled",
@@ -21,17 +26,41 @@ const DEFAULT_METADATA_VALUES: BlogPostMetadata = {
   tags: [],
 };
 
-export function getBlogPostsMetadata(): MdxFileMetadata<BlogPostMetadata>[] {
-  const allPostsMetadata = fetchMdxMetadataInDir<BlogPostMetadata>(
+export async function getBlogPostsMetadata(): Promise<
+  MdxFileMetadata<ProcessedBlogPostMetadata>[]
+> {
+  const blogPostsData = await fetchAllMdxFilesData<BlogPostMetadata>(
     BLOG_POSTS_DIR,
     DEFAULT_METADATA_VALUES
   );
-  return allPostsMetadata.sort((a, b) => b.date.localeCompare(a.date));
+
+  const processedBlogPostsMetadata = blogPostsData.map((blogPostData) => ({
+    ...blogPostData.metadata,
+    readingTime: Math.ceil(readingTime(blogPostData.mdxContent).minutes),
+  }));
+
+  return processedBlogPostsMetadata.sort((a, b) =>
+    b.date.localeCompare(a.date)
+  );
 }
 
 export async function getPostBySlug(
   slug: string
-): Promise<MdxFileData<BlogPostMetadata> | null> {
+): Promise<MdxFileData<ProcessedBlogPostMetadata> | null> {
   const filePath = path.join(BLOG_POSTS_DIR, `${slug}.md`);
-  return await fetchMdxFileData(slug, filePath, DEFAULT_METADATA_VALUES);
+  const blogPostData = await fetchMdxFileData(
+    slug,
+    filePath,
+    DEFAULT_METADATA_VALUES
+  );
+
+  if (!blogPostData) return blogPostData;
+
+  return {
+    ...blogPostData,
+    metadata: {
+      ...blogPostData?.metadata,
+      readingTime: Math.ceil(readingTime(blogPostData.mdxContent).minutes),
+    },
+  };
 }

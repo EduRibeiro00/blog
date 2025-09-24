@@ -7,8 +7,8 @@ import { getBlogPostsMetadata } from "@/lib/blog";
  */
 const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000;
 
-export default function BlogPage() {
-  const posts = getBlogPostsMetadata();
+export default async function BlogPage() {
+  const posts = await getBlogPostsMetadata();
 
   return (
     <div className="container mx-auto px-4 py-8">
