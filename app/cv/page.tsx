@@ -42,7 +42,7 @@ function CVEntryCard({
                   href={metadata.institutionLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline decoration-1"
+                  className="text-indigo-400 hover:underline decoration-1"
                 >
                   {metadata.institution}
                 </a>
@@ -51,7 +51,7 @@ function CVEntryCard({
               )}
             </p>
           </div>
-          <div className="flex flex-col items-start gap-2 text-sm text-gray-500 whitespace-nowrap">
+          <div className="flex flex-col items-start gap-2 text-sm text-muted-foreground whitespace-nowrap">
             <IconDetailBadge
               Icon={Calendar}
               size="md"
@@ -85,7 +85,7 @@ function CVSection({
     <section>
       <div className="flex items-center gap-2 mb-4">
         <Icon className="w-6 h-6" />
-        <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+        <h2 className="text-2xl font-bold">{title}</h2>
       </div>
       {entries.map((entry) => (
         <CVEntryCard key={entry.metadata.slug} {...entry} />
@@ -106,7 +106,7 @@ function CVSideCard({
   return (
     <Card>
       <CardContent>
-        <CardTitle className="text-2xl text-gray-900 mb-4">
+        <CardTitle className="text-2xl mb-4">
           <div className="flex items-center gap-2">
             <Icon className="w-6 h-6" />
             {title}
@@ -135,18 +135,18 @@ export default async function CVPage() {
                   alt={personalInfo.name}
                   width={200}
                   height={200}
-                  className="w-48 h-48 rounded-full object-cover border-4 border-gray-100"
+                  className="w-48 h-48 rounded-full object-cover border-1 border-gray-100"
                 />
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h1 className="text-4xl font-bold text-gray-900 mb-2">
+                <h1 className="text-4xl font-bold mb-2">
                   {personalInfo.name}
                 </h1>
-                <h2 className="text-xl text-gray-700 font-semibold mb-4">
+                <h2 className="text-xl font-semibold mb-4">
                   {personalInfo.title} <span className="font-normal">@</span>{" "}
                   {personalInfo.institution}
                 </h2>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="leading-relaxed">
                   {personalInfo.bio}
                 </p>
               </div>
@@ -195,7 +195,7 @@ export default async function CVPage() {
                         <Badge
                           key={skill}
                           variant="secondary"
-                          className="text-gray-500"
+                          className="text-muted-foreground"
                         >
                           {skill}
                         </Badge>
@@ -210,10 +210,10 @@ export default async function CVPage() {
               <div className="flex flex-col gap-4">
                 {personalInfo.certificates.map((certInfo, index) => (
                   <div key={index}>
-                    <p className="font-semibold text-gray-900">
+                    <p className="font-semibold">
                       {certInfo.title}
                     </p>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-muted-foreground">
                       {certInfo.description}
                     </p>
                   </div>
@@ -225,10 +225,10 @@ export default async function CVPage() {
               <div className="flex flex-col gap-4">
                 {personalInfo.languages.map((langInfo, index) => (
                   <div key={index}>
-                    <p className="font-semibold text-gray-900">
+                    <p className="font-semibold">
                       {langInfo.language}
                     </p>
-                    <p className="text-sm text-gray-600">{langInfo.level}</p>
+                    <p className="text-sm text-muted-foreground">{langInfo.level}</p>
                   </div>
                 ))}
               </div>
@@ -240,7 +240,7 @@ export default async function CVPage() {
                   <Badge
                     key={interest}
                     variant="secondary"
-                    className="text-gray-500"
+                    className="text-muted-foreground"
                   >
                     {interest}
                   </Badge>

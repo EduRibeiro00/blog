@@ -18,16 +18,14 @@ export default function IconLinkButton({
     <a href={link} target="_blank" rel="noopener noreferrer" className="group">
       <Button
         variant="outline"
-        className={`w-full h-auto flex items-center gap-2 bg-transparent pointer-events-none ${
-          variant === "row" ? "px-3" : "p-4 flex-col"
-        }`}
+        className={`w-full h-auto flex items-center gap-2 pointer-events-none ${variant === "row" ? "px-3" : "p-4 flex-col"
+          }`}
       >
         <Icon
-          className={`text-gray-700 ${
-            variant === "row" ? "w-4 h-4" : "w-6 h-6"
-          }`}
+          className={`${variant === "row" ? "w-4 h-4" : "w-6 h-6"
+            }`}
         />
-        <span className="text-sm font-medium text-gray-700 group-hover:underline">
+        <span className="text-sm font-medium group-hover:underline">
           {label}
         </span>
       </Button>

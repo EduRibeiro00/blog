@@ -15,8 +15,8 @@ export default async function BlogPage() {
       <div className="max-w-4xl mx-auto">
         <Backlink href="/" text="Back to main page" />
         <div className="mt-4 mb-10">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Blog</h1>
-          <p className="text-lg text-gray-600">
+          <h1 className="text-4xl font-bold mb-4">Blog</h1>
+          <p className="text-lg">
             In this page you can see all the blog posts I have made so far. I'll
             mainly talk about my software engineering journey and tech related
             stuff, but you might occasionally find something related to other
@@ -25,7 +25,7 @@ export default async function BlogPage() {
         </div>
         {posts.length === 0 ? (
           <div className="text-center py-12">
-            <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+            <h2 className="text-2xl font-semibold mb-4">
               No blog posts yet
             </h2>
           </div>

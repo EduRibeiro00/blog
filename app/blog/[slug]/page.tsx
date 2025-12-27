@@ -36,11 +36,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             ))}
           </div>
 
-          <h1 className="text-5xl font-bold text-gray-900 p-0 mb-4">
+          <h1 className="text-5xl font-bold p-0 mb-4">
             {postMetadata.title}
           </h1>
 
-          <div className="flex items-center gap-4 text-sm text-gray-500">
+          <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <IconDetailBadge
               Icon={CalendarDays}
               text={new Date(postMetadata.date).toLocaleDateString("en-US", {
@@ -52,9 +52,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             />
             <IconDetailBadge
               Icon={Clock}
-              text={`${postMetadata.readingTime} ${
-                postMetadata.readingTime === 1 ? "min" : "mins"
-              }`}
+              text={`${postMetadata.readingTime} ${postMetadata.readingTime === 1 ? "min" : "mins"
+                }`}
               size="md"
             />
           </div>

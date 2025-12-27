@@ -82,11 +82,11 @@ function ProjectCard({
 
           <div className="md:w-2/3 p-6">
             <div className="mb-4">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-2xl font-semibold mb-2">
                 {metadata.title}
               </h3>
 
-              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-3">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-3">
                 <IconDetailBadge
                   Icon={Calendar}
                   size="md"
@@ -107,7 +107,7 @@ function ProjectCard({
                   <Badge
                     key={tech}
                     variant="secondary"
-                    className="text-gray-500"
+                    className="text-muted-foreground"
                   >
                     {tech}
                   </Badge>
@@ -115,7 +115,7 @@ function ProjectCard({
               </div>
             </div>
 
-            <div className="text-gray-600 mb-4 leading-relaxed">
+            <div className="mb-4 leading-relaxed">
               <MDXRemote
                 {...mdxSource}
                 source={mdxContent}
@@ -155,10 +155,10 @@ export default async function ProjectsPage() {
         <Backlink href="/" text="Back to main page" />
 
         <div className="mb-8">
-          <h1 className="mt-4 text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="mt-4 text-4xl font-bold mb-4">
             Projects
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg">
             In this page you can find my portfolio of projects that I've
             developed or contributed to in the past. They range from web
             development, AI, distributed systems, among other topics.

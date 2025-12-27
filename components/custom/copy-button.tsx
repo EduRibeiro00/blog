@@ -24,8 +24,8 @@ export default function CopyButton({ contentToCopy }: CopyButtonProps) {
 
   return (
     <button
-      className={`p-1 rounded-md transition-all duration-200 ease-in-out
-        ${isCopied ? "bg-green-100 text-green-600" : "hover:bg-gray-300"}`}
+      className={`cursor-pointer p-1 rounded-md transition-all duration-200 ease-in-out
+        ${isCopied ? "bg-green-100 text-green-600" : "hover:bg-gray-600"}`}
       title={isCopied ? "Copied!" : "Copy to clipboard"}
     >
       {isCopied ? (

@@ -38,13 +38,13 @@ export default function BlogpostCard({
             <CardDescription>{post.description}</CardDescription>
             <div className="flex gap-2">
               {post.tags.map((tag) => (
-                <Badge key={tag} variant="secondary" className="text-gray-500">
+                <Badge key={tag} variant="secondary" className="text-muted-foreground">
                   {tag}
                 </Badge>
               ))}
             </div>
           </div>
-          <div className="flex items-center gap-4 text-sm text-gray-500">
+          <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <IconDetailBadge
               Icon={CalendarDays}
               text={new Date(post.date).toLocaleDateString("en-US", {
@@ -56,9 +56,8 @@ export default function BlogpostCard({
             />
             <IconDetailBadge
               Icon={Clock}
-              text={`${post.readingTime} ${
-                post.readingTime === 1 ? "min" : "mins"
-              }`}
+              text={`${post.readingTime} ${post.readingTime === 1 ? "min" : "mins"
+                }`}
               size="sm"
             />
           </div>

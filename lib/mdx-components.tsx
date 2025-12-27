@@ -5,19 +5,19 @@ import Image from "next/image";
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     h1: ({ children }) => (
-      <h1 className="text-4xl font-bold mb-6 text-gray-900">{children}</h1>
+      <h1 className="text-4xl font-bold mb-4 mt-8">{children}</h1>
     ),
     h2: ({ children }) => (
-      <h2 className="text-3xl font-semibold mb-4 text-gray-800">{children}</h2>
+      <h2 className="text-3xl font-semibold mb-4 mt-6">{children}</h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-2xl font-medium mb-3 text-gray-700">{children}</h3>
+      <h3 className="text-2xl font-medium mb-3 mt-3">{children}</h3>
     ),
     p: ({ children }) => (
-      <p className="mb-4 text-gray-600 leading-relaxed">{children}</p>
+      <p className="mb-4 leading-relaxed">{children}</p>
     ),
     pre: ({ children, ...props }) => (
-      <pre className="bg-gray-200 rounded p-4 mb-4 overflow-x-auto" {...props}>
+      <pre className="bg-slate-800 rounded p-4 mb-4 overflow-x-auto" {...props}>
         {children}
       </pre>
     ),
@@ -29,7 +29,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         !props.className || !props.className.startsWith("language-");
       if (isInline) {
         return (
-          <code className="bg-gray-200 px-2 py-1 rounded text-sm font-mono">
+          <code className="bg-slate-800 p-1 rounded text-sm font-code">
             {children}
           </code>
         );
@@ -54,21 +54,21 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       />
     ),
     ul: ({ children }) => (
-      <ul className="list-disc list-inside mb-4 text-gray-600">{children}</ul>
+      <ul className="list-disc list-inside mb-4">{children}</ul>
     ),
     ol: ({ children }) => (
-      <ol className="list-decimal list-inside mb-4 text-gray-600">
+      <ol className="list-decimal list-inside mb-4">
         {children}
       </ol>
     ),
     li: ({ children }) => <li className="mb-1">{children}</li>,
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-blue-500 pl-4 italic mb-4 text-gray-600">
+      <blockquote className="border-l-4 border-blue-500 pl-4 italic mb-4">
         {children}
       </blockquote>
     ),
     a: ({ href, children }) => (
-      <a href={href} className="text-blue-700 hover:underline">
+      <a href={href} className="text-indigo-400 hover:underline">
         {children}
       </a>
     ),

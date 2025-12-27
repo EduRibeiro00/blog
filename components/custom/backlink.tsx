@@ -10,7 +10,7 @@ export default function Backlink({ text, href }: BacklinkProps) {
   return (
     <Link
       href={href}
-      className="inline-flex items-center gap-2 text-blue-700 hover:underline m-0"
+      className="inline-flex items-center gap-2 text-indigo-400 hover:underline m-0"
     >
       <ArrowLeft className="w-4 h-4" />
       {text}

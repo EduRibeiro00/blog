@@ -25,15 +25,15 @@ interface HomeCardProps {
 function HomeCard({ link, icon, title, description }: HomeCardProps) {
   return (
     <Link href={link} className="group">
-      <Card className="h-full bg-white border-gray-200">
+      <Card className="h-full">
         <CardContent className="px-6 py-2 text-center">
           <div className="mb-4 flex justify-center">
-            <div className="p-3 bg-blue-50 rounded-full ">{icon}</div>
+            <div className="p-3 bg-blue-50 rounded-full">{icon}</div>
           </div>
-          <h3 className="text-xl group-hover:underline font-semibold text-gray-900 mb-2">
+          <h3 className="text-xl group-hover:underline font-semibold mb-2">
             {title}
           </h3>
-          <p className="text-gray-600 mx-2 text-sm">{description}</p>
+          <p className="mx-2 text-sm text-muted-foreground">{description}</p>
         </CardContent>
       </Card>
     </Link>
@@ -47,10 +47,10 @@ export default function HomePage() {
         <div className="background-animation"></div>
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Eduardo Ribeiro
             </h1>
-            <p className="text-xl md:text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl md:text-lg max-w-3xl mx-auto">
               Hi, I'm Eduardo Ribeiro! I'm a {age} year old software engineer
               from Porto, Portugal, and currently based in Berlin, Germany. Here
               you can find out more stuff about me, my career path until now,
@@ -81,13 +81,13 @@ export default function HomePage() {
           </div>
 
           <div className="flex justify-center">
-            <Card className="w-full max-w-3xl bg-white border-gray-200">
+            <Card className="w-full max-w-3xl">
               <CardContent className="px-6">
                 <div className="text-center mb-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-xl font-semibold mb-2">
                     Connect With Me
                   </h3>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-sm text-muted-foreground">
                     Reach out to me and check out my work on various platforms.
                   </p>
                 </div>

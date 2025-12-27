@@ -1,5 +1,5 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { coldarkCold } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import CopyButton from "./copy-button";
 
 interface CodeBlockProps {
@@ -13,16 +13,16 @@ export default function CodeBlock({ children, language }: CodeBlockProps) {
 
   return (
     <div className="group relative overflow-auto text-sm">
-      <div className="flex flex-row-reverse justify-between text-gray-500">
+      <div className="flex flex-row-reverse justify-between">
         <div className="justify-self-end">
           <CopyButton contentToCopy={code} />
         </div>
         {codeLang !== "plaintext" && (
-          <div className="text-gray-700 underline text-xs mb-3">{codeLang}</div>
+          <div className="text-muted-foreground underline text-xs mb-3">{codeLang}</div>
         )}
       </div>
       <SyntaxHighlighter
-        style={coldarkCold}
+        style={coldarkDark}
         language={language ?? "plaintext"}
         customStyle={{
           background: "transparent",
